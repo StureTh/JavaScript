@@ -1,9 +1,47 @@
 ﻿$(document).ready(function () {
 
+    var users = [
+
+        {
+            username: "user1",
+            firstname: "sture",
+            lastname: "thuren",
+            phonenumber: "0704059585",
+            city: "Munka",
+            age: 27
+        },
+
+        {
+            username: "user2",
+            firstname: "Issa",
+            lastname: "Simonsson",
+            phonenumber: "0704059333",
+            city: "Munka",
+            age: 26
+        },
+
+        {
+            username: "user3",
+            firstname: "Daniel",
+            lastname: "Dahlberg",
+            phonenumber: "070405999",
+            city: "Halmstad",
+            age: 27
+        }
+
+    ]
+
     var errordiv = $("#errorDiv");
     var form = $("#form");
     var hiddentext = $("#hiddentext");
     var button = $("#submit");
+    var getuser = $("#getuserbutton");
+
+    var usernameFrominput = $('#userName');
+    var firstname = $("#name");
+    var lastname = $("#lastname");
+    var phonenumber = $("#phone")
+    var city = $("#city");
     var age = $("#age");
 
 
@@ -20,10 +58,10 @@
             var newAge = age.val() - 10;
             hiddentext.show();
             form.hide();
-            hiddentext.css('background-color', "#BEF24A");
+            hiddentext.css('background-color', "#BEF24A");S
             hiddentext.val(
 
-                $('#username').val() + "\n" +
+                $('#userName').val() + "\n" +
                 $('#name').val() + "\n" +
                 $('#lastname').val() + "\n" +
                 $('#phone').val() + "\n" +
@@ -33,6 +71,30 @@
                 );
         };
 
+    });
+
+    getuser.on('click', function (e) {
+
+        var user = {};
+
+       
+
+        $.each(users, function (key, value) {
+            if (usernameFrominput.val() == value.username) {
+                user = value;
+            }
+
+        });
+
+        if (user.username != "") {
+
+            usernameFrominput.val(user.username);
+            firstname.val(user.firstname);
+            lastname.val(user.lastname);
+            phonenumber.val(user.phonenumber);
+            city.val(user.city);
+            age.val(user.age);
+        }
     });
 
 });
