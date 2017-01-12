@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/HideAndShow.js"></script>
+    <script src="Scripts/Media.js"></script>
+    <script src="Scripts/app.js"></script>
+
+</head>
+<body ng-controller="mediaCtrl">
+
+    <button id="allItems" ng-click="allProducts()">All Items</button>
+    <button id="allBooks">Books</button>
+    <button id="addBookBtn">Add New Book</button>
+
+    <table id="mediaTable">
+
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Article</th>
+        </tr>
+        <tr ng-repeat="media in MediaArray | orderBy: 'name'">
+            <td>{{media.name}}</td>
+            <td>{{media.category}}</td>
+            <td>{{media.price}}</td>
+            <td>{{media.articleNumber}}</td>
+
+
+
+        </tr>
+
+    </table>
+
+    <table id="bookTable">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Article Number</th>
+            <th>Writer</th>
+            <th>Year</th>
+        </tr>
+        <tr ng-repeat="media in BooksArray | orderBy: 'name'">
+            <td>{{media.name}}</td>
+            <td>{{media.price}}</td>
+            <td>{{media.articleNumber}}</td>
+            <td>{{media.writer}}</td>
+            <td>{{media.year}}</td>
+
+
+
+
+        </tr>
+
+
+    </table>
+
+    <div id="addBookForm">
+        <label>Name</label><input type="text" value="" ng-model="_name" /><br />
+        <label>Author</label> <input type="text" value="" ng-model="_writer" /><br />
+        <label>Price</label> <input type="text" value="" ng-model="_price" /> <br />
+        <label>Release date</label><input type="text" value="" ng-model="_release" /><br />
+        <label>Article Number</label><input type="text" value="" ng-model="_artNumber" /><br />
+
+        <button ng-click="addBook()">Save</button>
+    </div>
+
+
+
+
+
+</body>
+</html>
