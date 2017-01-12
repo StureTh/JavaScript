@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/app.js"></script>
+</head>
+<body ng-app="App">
+
+    <div ng-controller="ConverterCtrl">
+        <label>Euro</label> <input type="number" name="Euro" value="" ng-model="sekInput" ng-change="sekCalc()" />
+
+        <label>Sek</label><input type="number" name="Sek" value="" ng-model="euroInput" ng-change="euroCalc()" />
+    </div>
+
+</body>
+</html>
