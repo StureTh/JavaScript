@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/app.js"></script>
+</head>
+<body ng-controller="MediaCtrl" ng-init="OldUser()">
+    <label>Username</label><input type="text" ng-model="inputUserName" /><br />
+    <label>Password</label><input type="text" ng-model="inputPassword" /><br />
+   Remember Me: <input type="checkbox"  ng-model="boxRememberMe" /><br />
+    <button data-ng-click="LoginUser()">Login</button>
+
+    <p>{{error}}</p>
+</body>
+</html>
