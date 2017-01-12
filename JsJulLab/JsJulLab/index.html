@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/app.js"></script>
+</head>
+<body ng-controller="MediaCtrl">
+    <input type="text" ng-model="Moviefilter" />
+    <ul >
+
+        <li ng-repeat="movie in MoviesArray | filter: Moviefilter | orderBy: 'title' ">
+            {{movie.title}} <br /> {{movie.year}}
+        </li>
+
+    </ul>
+</body>
+</html>

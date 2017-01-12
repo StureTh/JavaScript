@@ -36,6 +36,7 @@
     var hiddentext = $("#hiddentext");
     var button = $("#submit");
     var getuser = $("#getuserbutton");
+    var usernotfound = $("#nouser");
 
     var usernameFrominput = $('#userName');
     var firstname = $("#name");
@@ -75,14 +76,19 @@
 
     getuser.on('click', function (e) {
 
-        var user = {};
+        
+
+        var user = {
+
+            username: ""
+ };
 
        
 
         $.each(users, function (key, value) {
             if (usernameFrominput.val() == value.username) {
                 user = value;
-            }
+            } 
 
         });
 
@@ -94,7 +100,16 @@
             phonenumber.val(user.phonenumber);
             city.val(user.city);
             age.val(user.age);
-        }
+            usernotfound.hide();
+        } else {
+
+            usernotfound.show();
+            usernotfound.text("User not found");
+            usernotfound.css('color', 'red');
+        };
+
+
+        
     });
 
 });
